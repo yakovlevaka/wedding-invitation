@@ -1,0 +1,161 @@
+<div class="page">
+  <main class="layout">
+    <section class="hero-card">
+      <div class="hero-photo"></div>
+      <div class="hero-overlay">
+        <div class="hero-names">Alex + Maria</div>
+        <div class="hero-save">Save the date</div>
+        <div class="hero-date-line">24.08.2026</div>
+        <div class="hero-scroll">Scroll down ↓</div>
+      </div>
+    </section>
+
+    <!-- SAVE THE DATE / OUR STORY -->
+    <section class="section save-date">
+      <header class="section-header">
+        <h2 class="section-title romantic">Дорогие родные и друзья!</h2>
+      </header>
+      <p class="body-text">
+        Через полгода состоится важное событие нашей жизни.
+      </p>
+      <p class="body-text">
+        Мы будем счастливы разделить этот день вместе с вами.
+      </p>
+      <p class="body-text romantic-line">Сохраните дату</p>
+      <p class="body-text date-line">24 августа 2026</p>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="section location">
+      <header class="section-header">
+        <h2 class="section-title romantic">Место проведения</h2>
+      </header>
+      <p class="place-name">Country Club "River Park"</p>
+      <p class="place-city">Москва</p>
+      <div class="location-map-placeholder"></div>
+      <a
+        class="primary-btn"
+        href="https://yandex.ru/maps/?text=Country%20Club%20River%20Park%20Moscow"
+        target="_blank"
+        rel="noopener"
+      >
+        Открыть карту
+      </a>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section timeline-section">
+      <header class="section-header">
+        <h2 class="section-title romantic">Программа мероприятия</h2>
+      </header>
+      <div class="timeline">
+        <div class="timeline-row">
+          <div class="time">13:00</div>
+          <div class="dot"></div>
+          <div class="event">Сбор гостей</div>
+        </div>
+        <div class="timeline-row">
+          <div class="time">14:00</div>
+          <div class="dot"></div>
+          <div class="event">Церемония</div>
+        </div>
+        <div class="timeline-row">
+          <div class="time">15:00</div>
+          <div class="dot"></div>
+          <div class="event">Банкет</div>
+        </div>
+        <div class="timeline-row">
+          <div class="time">23:00</div>
+          <div class="dot"></div>
+          <div class="event">Завершение</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRESS CODE -->
+    <section class="section dress-code">
+      <header class="section-header">
+        <h2 class="section-title romantic">Дресс-код</h2>
+      </header>
+      <p class="body-text">Цветовая палитра:</p>
+      <div class="palette">
+        <span class="swatch swatch--beige"></span>
+        <span class="swatch swatch--grey"></span>
+        <span class="swatch swatch--light-blue"></span>
+        <span class="swatch swatch--white"></span>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section rsvp-section">
+      <header class="section-header">
+        <h2 class="section-title romantic">RSVP</h2>
+      </header>
+
+      <form class="rsvp-form" #rsvpForm="ngForm" (ngSubmit)="onSubmit()">
+        <label class="field">
+          <span class="field-label">Ваше имя</span>
+          <input
+            type="text"
+            name="name"
+            [(ngModel)]="model.name"
+            required
+            class="text-input"
+          />
+        </label>
+
+        <fieldset class="field">
+          <legend class="field-label">Придете ли вы?</legend>
+          <label class="radio-option">
+            <input
+              type="radio"
+              name="attending"
+              [(ngModel)]="model.attending"
+              value="yes"
+            />
+            <span>Да</span>
+          </label>
+          <label class="radio-option">
+            <input
+              type="radio"
+              name="attending"
+              [(ngModel)]="model.attending"
+              value="no"
+            />
+            <span>Нет</span>
+          </label>
+          <label class="radio-option">
+            <input
+              type="radio"
+              name="attending"
+              [(ngModel)]="model.attending"
+              value="maybe"
+            />
+            <span>Пока не знаю</span>
+          </label>
+        </fieldset>
+
+        <label class="field">
+          <span class="field-label">Комментарий</span>
+          <textarea
+            name="message"
+            rows="3"
+            [(ngModel)]="model.message"
+            class="text-area"
+          ></textarea>
+        </label>
+
+        <button type="submit" class="primary-btn submit-btn" [disabled]="rsvpForm.invalid">
+          Отправить
+        </button>
+      </form>
+
+      <p class="thank-you" *ngIf="submitted">
+        Спасибо! Ждём вас ❤️
+      </p>
+    </section>
+
+    <footer class="footer-note">Love is in the air</footer>
+  </main>
+</div>
+
